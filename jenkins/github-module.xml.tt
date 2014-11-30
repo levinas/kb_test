@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>KBase assembly module</description>
+  <description>KBase [% module %] module</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.24"/>
@@ -10,7 +10,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/kbase/assembly.git</url>
+        <url>https://github.com/kbase/[% module %].git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -33,10 +33,13 @@
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
-  <customWorkspace>dev_container/modules/assembly</customWorkspace>
+  <customWorkspace>dev_container/modules/[% module %]</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
       <command>. ../../user-env.sh
+. /kb/deployment/user-env.sh
+make clean
+make
 make deploy-client</command>
     </hudson.tasks.Shell>
   </builders>

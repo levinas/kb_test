@@ -35,7 +35,7 @@ verify_cmd("ar-run") and verify_cmd("ar-get");
 my @ai_params = parse_assembly_input($assembly_input);
 
 my $cmd = join(" ", @ai_params);
-$cmd = "ar-run -r $recipe $cmd | ar-get -w -p | fasta_to_contigset.pl > $output_contigset";
+$cmd = "ar-run -r $recipe $cmd | ar-get -w -p | ./fasta_to_contigset.pl > $output_contigset";
 run($cmd);
 
 sub parse_assembly_input {

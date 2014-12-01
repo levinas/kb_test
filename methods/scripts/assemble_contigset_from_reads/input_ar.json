@@ -1,10 +1,10 @@
 [
   {
     "label": "assembly_input",
-    "value": "toy",
+    "value": "toy.assembly_input",
     "is_input": true,
     "is_workspace_id": true,
-    "workspace_name": "assembly_test",
+    "workspace_name": "jenkins-method-tests",
     "object_type": "KBaseAssembly.AssemblyInput"
   },
   {
@@ -21,10 +21,10 @@
   },
   {
     "label": "output_contigset",
-    "value": "toy_contigset",
+    "value": "toy.contigset",
     "is_input": false,
     "is_workspace_id": true,
-    "workspace_name": "assembly_test",
+    "workspace_name": "jenkins-method-tests",
     "object_type": "KBaseGenomes.ContigSet"
   }
 ]

@@ -1,0 +1,30 @@
+[
+  {
+    "label": "assembly_input",
+    "value": "toy",
+    "is_input": true,
+    "is_workspace_id": true,
+    "workspace_name": "assembly_test",
+    "object_type": "KBaseAssembly.AssemblyInput"
+  },
+  {
+    "label": "description",
+    "value": "toy example",
+    "is_input": true,
+    "is_workspace_id": false
+  },
+  {
+    "label": "recipe",
+    "value": "kiki",
+    "is_input": true,
+    "is_workspace_id": false
+  },
+  {
+    "label": "output_contigset",
+    "value": "toy_contigset",
+    "is_input": false,
+    "is_workspace_id": true,
+    "workspace_name": "assembly_test",
+    "object_type": "KBaseGenomes.ContigSet"
+  }
+]

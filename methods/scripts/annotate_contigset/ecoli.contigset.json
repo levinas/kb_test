@@ -1,0 +1,7 @@
+{
+	"input_contigset":"kb|g.0.contigset",
+	"scientific_name":"Escherichia coli K12",
+	"genetic_code":11,
+	"output_genome":"ecoli.genome",
+	"workspace":"jenkins-method-tests"
+}

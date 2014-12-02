@@ -5,6 +5,8 @@ use Data::Dumper;
 use Getopt::Long;
 use JSON;
 
+Getopt::Long::Configure("pass_through");
+
 my $usage = <<"End_of_Usage";
 
 usage: $0 [ options ] 

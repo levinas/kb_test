@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Tests against the communities production server</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.24"/>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <assignedNode>kbase</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H 2 * * *</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>. /kb/deployment/user-env.sh
+. ~/kb_test/env/user-env.sh
+~/kb_test/service-tests/scripts/test-communities-original.sh</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <org.tap4j.plugin.TapPublisher plugin="tap@1.20">
+      <testResults>*/*.tap</testResults>
+      <failIfNoResults>false</failIfNoResults>
+      <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
+      <outputTapToConsole>false</outputTapToConsole>
+      <enableSubtests>false</enableSubtests>
+      <discardOldReports>false</discardOldReports>
+      <todoIsFailure>false</todoIsFailure>
+      <includeCommentDiagnostics>false</includeCommentDiagnostics>
+      <validateNumberOfTests>false</validateNumberOfTests>
+      <planRequired>true</planRequired>
+      <verbose>true</verbose>
+    </org.tap4j.plugin.TapPublisher>
+  </publishers>
+  <buildWrappers/>
+</project>

@@ -27,7 +27,7 @@
   </builders>
   <publishers>
     <org.tap4j.plugin.TapPublisher plugin="tap@1.20">
-      <testResults>*/*.tap</testResults>
+      <testResults>test/*/*.tap</testResults>
       <failIfNoResults>false</failIfNoResults>
       <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
       <outputTapToConsole>false</outputTapToConsole>

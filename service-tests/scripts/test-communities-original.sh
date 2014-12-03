@@ -1,5 +1,5 @@
 
-rsync -avp --del /kb/dev_container/communities_api/test/ test
+rsync -avp --del /kb/dev_container/modules/communities_api/test/ test
 
 for f in test/client-tests/*.t; do
   echo "Testing $f..."

@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Tests against the assembly production server</description>
+  <description>Tests against the trees production server</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.24"/>
@@ -14,7 +14,7 @@
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
     <hudson.triggers.TimerTrigger>
-      <spec>H 1 * * *</spec>
+      <spec>H 3 * * *</spec>
     </hudson.triggers.TimerTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
@@ -22,12 +22,12 @@
     <hudson.tasks.Shell>
       <command>. /kb/deployment/user-env.sh
 . ~/kb_test/env/user-env.sh
-~/kb_test/service-tests/scripts/test-assembly.sh</command>
+~/kb_test/service-tests/scripts/test-trees-original.sh</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <org.tap4j.plugin.TapPublisher plugin="tap@1.20">
-      <testResults>*.tap</testResults>
+      <testResults>test/*/*.tap</testResults>
       <failIfNoResults>false</failIfNoResults>
       <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
       <outputTapToConsole>false</outputTapToConsole>
@@ -39,11 +39,6 @@
       <planRequired>true</planRequired>
       <verbose>true</verbose>
     </org.tap4j.plugin.TapPublisher>
-    <org.jenkinsci.plugins.snsnotify.AmazonSNSNotifier plugin="snsnotify@1.8-RELEASE">
-      <projectTopicArn>arn:aws:sns:us-east-1:531009375097:assembly</projectTopicArn>
-      <subjectTemplate></subjectTemplate>
-      <messageTemplate></messageTemplate>
-    </org.jenkinsci.plugins.snsnotify.AmazonSNSNotifier>
   </publishers>
   <buildWrappers/>
 </project>

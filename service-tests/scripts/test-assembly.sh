@@ -5,5 +5,4 @@ MODULE_SCRIPTS=$DIR/assembly
 
 cp $DIR/assembly/arast.t .
 
-./arast.t
-
+./arast.t |tee arast.t.tap

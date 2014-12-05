@@ -11,33 +11,51 @@ my $usage = <<"End_of_Usage";
 
 usage: $0 [ options ] 
 
+Input:
+
     --assembly_input   filename     - json input of KBaseAssembly.AssemblyInput typed object
     --description      text         - description of assembly job
-    --recipe           string       - assembly recipe
+
+Output:
+
     --output_contigset filename     - required json output of KBaseGenomes.ContigSet typed object
+
+Method (only one is used: pipeline > assembler > recipe):
+
+    --assembler        string       - assembler
+    --recipe           string       - assembly recipe
+    --pipeline         string       - multistep assembly pipeline (e.g., "tagdust velvet")
 
 End_of_Usage
 
 my ($help, $assembly_input, $assembly_input, $description,
-    $recipe, $output_contigset);
+    $output_contigset, $recipe, $assembler, $pipeline);
 
 GetOptions("h|help"               => \$help,
-           "a|assembly_input=s"   => \$assembly_input,
+           "i|assembly_input=s"   => \$assembly_input,
            "d|description=s"      => \$description,
+           "o|output_contigset=s" => \$output_contigset,
            "r|recipe=s"           => \$recipe,
-           "o|output_contigset=s" => \$output_contigset
+           "a|assembler=s"        => \$assembler,
+           "p|pipeline=s"         => \$pipeline,
 	  ) or die("Error in command line arguments\n");
 
 $help and die $usage;
 
-$recipe && $output_contigset or die $usage;
+($recipe || $assembler || $pipeline) && $output_contigset or die $usage;
 
 verify_cmd("ar-run") and verify_cmd("ar-get");
+
+my $method = $pipeline  ? "-p '$pipeline'" :
+             $assembler ? "-a $assembler"  :
+                          "-r $recipe";
 
 my @ai_params = parse_assembly_input($assembly_input);
 
 my $cmd = join(" ", @ai_params);
-$cmd = "ar-run -r $recipe $cmd | ar-get -w -p | ./fasta_to_contigset.pl > $output_contigset";
+$cmd = "ar-run $method $cmd | ar-get -w -p | ./fasta_to_contigset.pl > $output_contigset";
+print "$cmd\n";
+
 run($cmd);
 
 sub parse_assembly_input {

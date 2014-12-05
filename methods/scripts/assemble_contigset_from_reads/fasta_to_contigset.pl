@@ -45,7 +45,8 @@ sub read_fasta
      my $dataR = ( $_[0] && ref $_[0] eq 'SCALAR' ) ?  $_[0] : slurp( @_ );
     $dataR && $$dataR or return wantarray ? () : [];
 
-    my $is_fasta = $$dataR =~ m/^[\s\r]*>/;
+    my $is_fasta = $$dataR =~ m/^[\s\r]*>/ or die "No valid contigs found\n";
+
     my @seqs = map { $_->[2] =~ tr/ \n\r\t//d; $_ }
                map { /^(\S+)([ \t]+([^\n\r]+)?)?[\n\r]+(.*)$/s ? [ $1, $3 || '', $4 || '' ] : () }
                split /[\n\r]+>[ \t]*/m, $$dataR;

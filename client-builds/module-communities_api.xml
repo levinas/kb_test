@@ -40,7 +40,7 @@
 . /kb/deployment/user-env.sh
 make clean
 make
-make deploy-client</command>
+make deploy</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

@@ -6,7 +6,7 @@
   <properties>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.24"/>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.1">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -50,7 +50,7 @@ export PATH=../deployment/bin:$PATH
   </builders>
   <publishers>
     <org.tap4j.plugin.TapPublisher plugin="tap@1.20">
-      <testResults>*.tap</testResults>
+      <testResults>test/*.tap</testResults>
       <failIfNoResults>false</failIfNoResults>
       <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
       <outputTapToConsole>false</outputTapToConsole>
@@ -64,7 +64,7 @@ export PATH=../deployment/bin:$PATH
     </org.tap4j.plugin.TapPublisher>
     <org.jenkinsci.plugins.snsnotify.AmazonSNSNotifier plugin="snsnotify@1.8-RELEASE">
       <projectTopicArn>arn:aws:sns:us-east-1:531009375097:assembly</projectTopicArn>
-      <subjectTemplate></subjectTemplate>
+      <subjectTemplate>Dev build {BUILD_RESULT} {BUILD_FULLDISPLAYNAME}</subjectTemplate>
       <messageTemplate></messageTemplate>
     </org.jenkinsci.plugins.snsnotify.AmazonSNSNotifier>
   </publishers>

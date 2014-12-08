@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Tests against the assembly dev server</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.24"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/kbase/assembly.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/dev</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <assignedNode>kbase</assignedNode>
+  <canRoam>false</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>H 5 * * *</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>workspace/assembly.dev</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>. /kb/deployment/user-env.sh
+. ~/kb_test/env/user-env.sh
+DEPLOY_RUNTIME=$KB_RUNTIME make -f Makefile.standalone
+rm -rf temp
+mkdir temp
+cd temp
+export ARAST_URL=140.221.67.201
+export KB_RUNNING_IN_IRIS=1
+export PATH=../deployment/bin:$PATH
+../test/arast.t |tee arast.t.tap</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <org.tap4j.plugin.TapPublisher plugin="tap@1.20">
+      <testResults>*.tap</testResults>
+      <failIfNoResults>false</failIfNoResults>
+      <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
+      <outputTapToConsole>false</outputTapToConsole>
+      <enableSubtests>false</enableSubtests>
+      <discardOldReports>false</discardOldReports>
+      <todoIsFailure>false</todoIsFailure>
+      <includeCommentDiagnostics>false</includeCommentDiagnostics>
+      <validateNumberOfTests>false</validateNumberOfTests>
+      <planRequired>true</planRequired>
+      <verbose>true</verbose>
+    </org.tap4j.plugin.TapPublisher>
+    <org.jenkinsci.plugins.snsnotify.AmazonSNSNotifier plugin="snsnotify@1.8-RELEASE">
+      <projectTopicArn>arn:aws:sns:us-east-1:531009375097:assembly</projectTopicArn>
+      <subjectTemplate></subjectTemplate>
+      <messageTemplate></messageTemplate>
+    </org.jenkinsci.plugins.snsnotify.AmazonSNSNotifier>
+  </publishers>
+  <buildWrappers/>
+</project>

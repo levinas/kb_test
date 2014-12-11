@@ -26,19 +26,18 @@
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <org.tap4j.plugin.TapPublisher plugin="tap@1.20">
-      <testResults>test/*/*.tap</testResults>
-      <failIfNoResults>false</failIfNoResults>
-      <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
-      <outputTapToConsole>false</outputTapToConsole>
-      <enableSubtests>false</enableSubtests>
-      <discardOldReports>false</discardOldReports>
-      <todoIsFailure>false</todoIsFailure>
-      <includeCommentDiagnostics>false</includeCommentDiagnostics>
-      <validateNumberOfTests>false</validateNumberOfTests>
-      <planRequired>true</planRequired>
-      <verbose>true</verbose>
-    </org.tap4j.plugin.TapPublisher>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>test/*/*.junit.xml</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.tasks.junit.JUnitResultArchiver plugin="junit@1.2">
+      <testResults>test/*/*.junit.xml</testResults>
+      <keepLongStdio>true</keepLongStdio>
+      <healthScaleFactor>1.0</healthScaleFactor>
+    </hudson.tasks.junit.JUnitResultArchiver>
   </publishers>
   <buildWrappers/>
 </project>

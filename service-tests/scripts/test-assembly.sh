@@ -2,6 +2,6 @@
 
 DIR=/kb/dev_container/modules
 
-cp $DIR/assembly/arast.t .
+cp $DIR/assembly/test/arast.t .
 
 ./arast.t |tee arast.t.tap

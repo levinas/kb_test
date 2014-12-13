@@ -1,6 +1,6 @@
 #! /bin/bash
 
-DIR=/kb/dev_container/modules/assembly
+DIR=/kb/dev_container/modules
 
 cp $DIR/assembly/arast.t .
 

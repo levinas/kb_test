@@ -64,7 +64,7 @@ export PATH=../deployment/bin:$PATH
     </org.tap4j.plugin.TapPublisher>
     <org.jenkinsci.plugins.snsnotify.AmazonSNSNotifier plugin="snsnotify@1.8-RELEASE">
       <projectTopicArn>arn:aws:sns:us-east-1:531009375097:assembly</projectTopicArn>
-      <subjectTemplate>Dev build {BUILD_RESULT} {BUILD_FULLDISPLAYNAME}</subjectTemplate>
+      <subjectTemplate></subjectTemplate>
       <messageTemplate></messageTemplate>
     </org.jenkinsci.plugins.snsnotify.AmazonSNSNotifier>
   </publishers>

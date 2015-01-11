@@ -62,13 +62,22 @@ my $method = $pipeline  ? "-p '$pipeline'" :
              $assembler ? "-a $assembler"  :
                           "-r $recipe";
 
-my @ai_params = parse_assembly_input($assembly_input);
+my $ai_file = $assembly_input ? $assembly_input : libs_to_json(\@read_library);
+
+my @ai_params = "--data-json $ai_file";
 
 my $cmd = join(" ", @ai_params);
-$cmd = "ar-run $method $cmd | ar-get -w -p | ./fasta_to_contigset.pl > $output_contigset";
+# $cmd = "ar-run $method $cmd | ar-get -w -p | ./fasta_to_contigset.pl > $output_contigset";
+$cmd = "ar-run $method $cmd | ar-get -w -r > $output_contigset.report";
 print "$cmd\n";
 
 # run($cmd);
+
+sub libs_to_json {
+    my ($libs) = @_;
+    
+}
+
 
 sub parse_assembly_input {
     my ($json) = @_;

@@ -14,7 +14,10 @@ usage: $0 [ options ]
 Input:
 
     --assembly_input   filename     - json input of KBaseAssembly.AssemblyInput typed object
-    --description      text         - description of assembly job
+    --read_library     lib          - one or more input read libraries of one of four types:
+                                        KBaseAssembly.PairedEndLibrary, KBaseAssembly.SingleEndLibrary, 
+                                        KBaseFile.PairedEndLibrary, KBaseFile.SingleEndLibrary
+    --reference        contigset    - reference contig set used for evaluating assembly quality
 
 Output:
 
@@ -26,23 +29,32 @@ Method (only one is used: pipeline > assembler > recipe):
     --recipe           string       - assembly recipe
     --pipeline         string       - multistep assembly pipeline (e.g., "tagdust velvet")
 
+Additional information:
+
+    --description      text         - description of assembly job
+
+
 End_of_Usage
 
-my ($help, $assembly_input, $assembly_input, $description,
-    $output_contigset, $recipe, $assembler, $pipeline);
+my ($help, $assembly_input, @read_library, $reference, 
+    $output_contigset, $recipe, $assembler, $pipeline, $description);
 
 GetOptions("h|help"               => \$help,
            "i|assembly_input=s"   => \$assembly_input,
-           "d|description=s"      => \$description,
+           "l|read_library=s"     => \@read_library,
+           "r|reference=s"        => \$reference, 
            "o|output_contigset=s" => \$output_contigset,
            "r|recipe=s"           => \$recipe,
            "a|assembler=s"        => \$assembler,
            "p|pipeline=s"         => \$pipeline,
+           "d|description=s"      => \$description,
 	  ) or die("Error in command line arguments\n");
 
 $help and die $usage;
 
-($recipe || $assembler || $pipeline) && $output_contigset or die $usage;
+($assembly_input || @read_library) && ($recipe || $assembler || $pipeline) && $output_contigset or die $usage;
+
+print STDERR '\@read_library = '. Dumper(\@read_library);
 
 verify_cmd("ar-run") and verify_cmd("ar-get");
 
@@ -56,7 +68,7 @@ my $cmd = join(" ", @ai_params);
 $cmd = "ar-run $method $cmd | ar-get -w -p | ./fasta_to_contigset.pl > $output_contigset";
 print "$cmd\n";
 
-run($cmd);
+# run($cmd);
 
 sub parse_assembly_input {
     my ($json) = @_;

@@ -1,0 +1,55 @@
+
+[
+  {
+    "label": "read_library",
+    "value": "rhodo.art.q10.PE.reads",
+    "is_input": true,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "KBaseAssembly.PairedEndLibrary"
+  },
+  {
+    "label": "read_library",
+    "value": "rhodo.art.q50.int.PE.reads",
+    "is_input": true,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "KBaseAssembly.PairedEndLibrary"
+  },
+  {
+    "label": "read_library",
+    "value": "rhodo.art.q50.SE.reads",
+    "is_input": true,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "KBaseAssembly.SingleEndLibrary"
+  },
+  {
+    "label": "reference",
+    "value": "rhodobacter_CACIA14H1.reference",
+    "is_input": true,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "KBaseAssembly.ReferenceAssembly"
+  },
+  {
+    "label": "description",
+    "value": "Rhodo ART reads",
+    "is_input": true,
+    "is_workspace_id": false
+  },
+  {
+    "label": "recipe",
+    "value": "kiki",
+    "is_input": true,
+    "is_workspace_id": false
+  },
+  {
+    "label": "output_contigset",
+    "value": "rhodo.art.contigs",
+    "is_input": false,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "KBaseGenomes.ContigSet"
+  }
+]

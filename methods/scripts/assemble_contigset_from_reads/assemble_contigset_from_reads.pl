@@ -71,6 +71,8 @@ my $ai_file = $assembly_input ? $assembly_input : libs_to_json(\@read_library, $
 $ai_file && -s $ai_file or die "No assembly input or read library found.\n";
 
 my @ai_params = "--data-json $ai_file";
+push @ai_params, "-m '$description'" if $description;
+
 my $cmd = join(" ", @ai_params);
 
 # $cmd = "ar-run $method $cmd | ar-get -w -p | ./fasta_to_contigset.pl > $output_contigset";

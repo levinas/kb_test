@@ -1,6 +1,7 @@
 #! /usr/bin/env perl
 
 use strict;
+use Carp;
 use Data::Dumper;
 use Getopt::Long;
 use JSON;
@@ -22,6 +23,7 @@ Input:
 Output:
 
     --output_contigset filename     - required json output of KBaseGenomes.ContigSet typed object
+    --assembly_report  filename     - json output of KBaseAssembly.AssemblyReport typed object
 
 Method (only one is used: pipeline > assembler > recipe):
 
@@ -37,24 +39,26 @@ Additional information:
 End_of_Usage
 
 my ($help, $assembly_input, @read_library, $reference, 
-    $output_contigset, $recipe, $assembler, $pipeline, $description);
+    $output_contigset, $assembly_report,
+    $recipe, $assembler, $pipeline,
+    $description, $dry_run);
 
 GetOptions("h|help"               => \$help,
            "i|assembly_input=s"   => \$assembly_input,
            "l|read_library=s"     => \@read_library,
-           "r|reference=s"        => \$reference, 
+           "f|reference=s"        => \$reference, 
            "o|output_contigset=s" => \$output_contigset,
+           "t|assembly_report=s"  => \$assembly_report,
            "r|recipe=s"           => \$recipe,
            "a|assembler=s"        => \$assembler,
            "p|pipeline=s"         => \$pipeline,
            "d|description=s"      => \$description,
+           "dry"                  => \$dry_run,
 	  ) or die("Error in command line arguments\n");
 
 $help and die $usage;
 
 ($assembly_input || @read_library) && ($recipe || $assembler || $pipeline) && $output_contigset or die $usage;
-
-print STDERR '\@read_library = '. Dumper(\@read_library);
 
 verify_cmd("ar-run") and verify_cmd("ar-get");
 
@@ -62,22 +66,108 @@ my $method = $pipeline  ? "-p '$pipeline'" :
              $assembler ? "-a $assembler"  :
                           "-r $recipe";
 
-my $ai_file = $assembly_input ? $assembly_input : libs_to_json(\@read_library);
+my $ai_file = $assembly_input ? $assembly_input : libs_to_json(\@read_library, $reference);
+
+$ai_file && -s $ai_file or die "No assembly input or read library found.\n";
 
 my @ai_params = "--data-json $ai_file";
-
 my $cmd = join(" ", @ai_params);
+
 # $cmd = "ar-run $method $cmd | ar-get -w -p | ./fasta_to_contigset.pl > $output_contigset";
-$cmd = "ar-run $method $cmd | ar-get -w -r > $output_contigset.report";
+$cmd = "ar-run $method $cmd >job 2>err";
 print "$cmd\n";
 
-# run($cmd);
+exit if $dry_run;
 
-sub libs_to_json {
-    my ($libs) = @_;
-    
+my $rv = system($cmd);
+if ($rv == 0 && -s "job") {
+    system("ar-get -w -r <job >report");
+    system("ar-get -w -l <job >log");
+    system("ar-get -w -p <job >$output_contigset.fa");
 }
 
+if (-s "$output_contigset.fa") {
+    system("./fasta_to_contigset.pl <$output_contigset.fa >$output_contigset 2>>err");
+}
+
+if ($assembly_report) {
+    my $report = `cat report`;
+    my $log = `cat err log`;
+    my $user = $ENV{ARAST_AUTH_USER};
+    my $url = $ENV{ARAST_URL};
+    my $jid = `cat job`; ($jid) = $jid =~ /(\d+)/;
+    my $hash = { report => $report, log => $log, user => $user, server_url => $url, job_id => $jid };
+    my $s = encode_json($hash)."\n";
+    print_output($s, $assembly_report);
+}
+
+sub libs_to_json {
+    my ($read_libs, $ref) = @_;
+    $read_libs && @$read_libs or return;
+
+    my (@pes, @ses, @ref);
+    for my $json (@$read_libs) {
+        my $lib = decode_json(slurp_input($json));
+        if    ($lib->{handle_1}) { push @pes, $lib }     # KBaseAssembly.PairedEndLibrary
+        elsif ($lib->{handle})   { push @ses, $lib }     # KBaseAssembly.SingleEndLibrary
+        elsif ($lib->{lib1})     { push @pes, jgi_pe($lib) } # KBaseFile.PairedEndLibrary
+        elsif ($lib->{lib})      { push @ses, jgi_se($lib) } # KBaseFile.SingleEndLibrary
+        else { print STDERR "Ignored unrecognized lib: $json\n"; }
+    }
+    if ($ref) {
+        my $r = decode_json(slurp_input($ref));
+        push @ref, $r;
+    }
+
+    my $ai; 
+    $ai->{paired_end_libs} = \@pes if @pes;
+    $ai->{single_end_libs} = \@ses if @ses;
+    $ai->{references}      = \@ref if @ref;
+
+    my $json = 'combined_reads.assembly_input';
+    my $s = encode_json($ai)."\n";
+    print_output($s, $json);
+    return $json;
+}
+
+sub jgi_pe {
+    my ($hash) = @_;
+    my $base = base_from_jgi_lib($hash);
+    my $lib;
+    for my $key (qw(interleaved insert_size_mean insert_size_std_dev)) {
+        $lib->{$key} = $hash->{$key} if $hash->{$key};
+    }
+    for my $i (1..2) {
+        if ($hash->{"lib$i"}) {
+            $lib->{"handle_$i"} = $hash->{"lib$i"}->{file};
+            $lib->{"handle_$i"}->{file_name} = "$base\_$i.".$hash->{"lib$i"}->{type};
+        }
+    }
+    return $lib;
+}
+
+sub jgi_se {
+    my ($hash) = @_;
+    my $base = base_from_jgi_lib($hash);
+    my $lib;
+    if ($hash->{"lib"}) {
+        $lib->{"handle"} = $hash->{"lib"}->{file};
+        $lib->{"handle"}->{file_name} = "$base.".$hash->{"lib"}->{type};
+    }
+    return $lib;
+}
+
+my $global_libs;
+sub base_from_jgi_lib {
+    my ($hash) = @_;
+    my $strain = join(' ', $hash->{strain}->{genus}, $hash->{strain}->{species}, $hash->{strain}->{strain});
+    my $proj   = join(' ', $hash->{source}->{source}, $hash->{source}->{project_id});
+    my $base   = $strain || $proj || 'shock_reads';
+    $base =~ s/\W/_/g;
+    $base =~ s/_+/_/g;
+    $base .= join('', '_lib', ++$global_libs);
+    return $base;
+}
 
 sub parse_assembly_input {
     my ($json) = @_;
@@ -197,7 +287,7 @@ sub print_output
     #  File name
     my $fh;
     open( $fh, '>', $file ) || die "Could not open output $file\n";
-    print $fh, $text;
+    print $fh $text;
     close( $fh );
 }
 

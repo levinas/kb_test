@@ -10,11 +10,19 @@
   },
   {
     "label": "read_library",
-    "value": "rhodo.art.q50.int.PE.reads",
+    "value": "rhodo.art.q20.int.PE.reads",
     "is_input": true,
     "is_workspace_id": true,
     "workspace_name": "jenkins-method-tests",
     "object_type": "KBaseAssembly.PairedEndLibrary"
+  },
+  {
+    "label": "read_library",
+    "value": "rhodo.art.jgi.reads",
+    "is_input": true,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "KBaseFile.PairedEndLibrary"
   },
   {
     "label": "read_library",
@@ -51,5 +59,13 @@
     "is_workspace_id": true,
     "workspace_name": "jenkins-method-tests",
     "object_type": "KBaseGenomes.ContigSet"
+  },
+  {
+    "label": "assembly_report",
+    "value": "rhodo.art.contigs.report",
+    "is_input": false,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "KBaseAssembly.AssemblyReport"
   }
 ]

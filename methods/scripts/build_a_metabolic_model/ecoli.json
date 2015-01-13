@@ -1,0 +1,6 @@
+{
+	"genome": "kb|g.0",
+	"workspace": "jenkins-method-tests",
+	"genome_workspace": "KBasePublicGenomesV5",
+	"model": "ecoli.model"
+}

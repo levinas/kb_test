@@ -7,5 +7,6 @@
         "media_workspace": "KBaseMedia"
     },
     "out_model": "ecoli.model.gf",
-    "fastgapfill": 1
+    "fastgapfill": 1,
+    "integrate_solution": 1
 }

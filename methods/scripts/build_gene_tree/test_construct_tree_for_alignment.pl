@@ -48,7 +48,7 @@ my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL);
 
 my $params = {
     msa_ref => $msa_ref,
-    out_tree_id => 'test.gene.tree',
+    out_tree_id => 'test.gene.tree.out',
     out_workspace => $test_workspace,
     tree_method => 'FastTree' # one of  Clustal, FastTree
 };

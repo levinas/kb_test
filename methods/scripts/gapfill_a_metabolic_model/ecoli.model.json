@@ -6,7 +6,7 @@
         "media": "Biolog-C-glu-l-N-glu-l",
         "media_workspace": "KBaseMedia"
     },
-    "out_model": "ecoli.model.gf",
+    "out_model": "ecoli.model.gf.out",
     "fastgapfill": 1,
     "integrate_solution": 1
 }

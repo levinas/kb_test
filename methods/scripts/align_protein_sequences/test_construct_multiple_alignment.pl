@@ -51,7 +51,7 @@ my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL);
 
 my $params = {
     featureset_ref => $featureset_ref,
-    out_msa_id => 'test.gene.msa',
+    out_msa_id => 'test.gene.msa.out',
     out_workspace => $test_workspace,
     is_protein_mode => 1,
     alignment_method => 'Muscle' # one of  Muscle, Clustal, ProbCons, T-Coffee, Mafft

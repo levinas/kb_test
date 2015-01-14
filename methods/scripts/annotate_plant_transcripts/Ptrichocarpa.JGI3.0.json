@@ -1,0 +1,6 @@
+{
+    "input_genome": "Ptrichocarpa.JGI3.0",
+    "kmer_v1_parameters": "1",
+    "output_genome": "Ptrichocarpa.JGI3.0.out",
+    "workspace": "jenkins-method-tests"
+}

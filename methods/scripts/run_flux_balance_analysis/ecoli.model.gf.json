@@ -1,0 +1,9 @@
+{
+    "model": "ecoli.model.gf",
+    "workspace": "jenkins-method-tests",
+    "formulation": {
+        "media": "Biolog-C-glu-l-N-glu-l",
+        "media_workspace": "KBaseMedia"
+    },
+    "fba": "ecoli.fba"
+}

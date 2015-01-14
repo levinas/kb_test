@@ -1,9 +1,9 @@
 {
     "model": "ecoli.model.gf",
     "workspace": "jenkins-method-tests",
-    "formulation": { "formulation": {
+    "formulation": 
         "media": "Carbon-D-Glucose",
         "media_workspace": "KBaseMedia"
-    }},
+    },
     "fba": "ecoli.fba"
 }

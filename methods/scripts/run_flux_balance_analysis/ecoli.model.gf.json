@@ -5,5 +5,5 @@
         "media": "Carbon-D-Glucose",
         "media_workspace": "KBaseMedia"
     },
-    "fba": "ecoli.fba"
+    "fba": "ecoli.fba.out"
 }

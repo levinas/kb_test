@@ -1,5 +1,5 @@
 {
-    "model": "ecoli.model",
+    "model": "ecoli.model.gf",
     "model_workspace": "jenkins-method-tests",
     "phenotypeSet": "kb|g.0.phenos.339",
     "phenotypeSet_workspace": "jenkins-method-tests",

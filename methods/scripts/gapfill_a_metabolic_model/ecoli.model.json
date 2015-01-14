@@ -2,11 +2,11 @@
     "model": "ecoli.model",
     "workspace": "jenkins-method-tests",
     "model_workspace": "jenkins-method-tests",
-    "formulation": {
-        "media": "GlucoseMinimal",
-        "media_workspace": "jenkins-method-tests"
-    },
-    "out_model": "ecoli.model.gf.out",
+    "formulation": { "formulation": {
+        "media": "Carbon-D-Glucose",
+        "media_workspace": "KBaseMedia"
+    }},
+    "out_model": "ecoli.model.gf",
     "fastgapfill": 1,
     "integrate_solution": 1
 }

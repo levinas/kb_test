@@ -1,0 +1,6 @@
+{
+    "input_genome": "Athaliana.TAIR10",
+    "kmer_v1_parameters": "1",
+    "output_genome": "Athaliana.TAIR10.out",
+    "workspace": "jenkins-method-tests"
+}

@@ -37,7 +37,7 @@ my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL);
 
 my $params = {
     new_genomes => [$test_genome_ref],
-    out_tree_id => 'test.tree',
+    out_tree_id => 'test.tree.out',
     out_workspace => $test_workspace,
     use_ribosomal_s9_only => 1,
     nearest_genome_count => 5

@@ -3,9 +3,9 @@
     "workspace": "jenkins-method-tests",
     "model_workspace": "jenkins-method-tests",
     "formulation": {
-        "media":"Biolog-C-glu-l-N-glu-l",
-        "media_workspace":"KBaseMedia"
+        "media": "Biolog-C-glu-l-N-glu-l",
+        "media_workspace": "KBaseMedia"
     },
     "out_model": "ecoli.model.gf",
-    "fastgapfill": 1,
+    "fastgapfill": 1
 }

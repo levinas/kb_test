@@ -23,7 +23,6 @@ Input:
 Output:
 
     --output_contigset filename     - required json output of KBaseGenomes.ContigSet typed object
-    --assembly_report  filename     - json output of KBaseAssembly.AssemblyReport typed object
 
 Method (only one is used: pipeline > assembler > recipe):
 
@@ -59,6 +58,7 @@ GetOptions("h|help"               => \$help,
 $help and die $usage;
 
 ($assembly_input || @read_library) && ($recipe || $assembler || $pipeline) && $output_contigset or die $usage;
+$assembly_report ||= "$output_contigset.report";
 
 verify_cmd("ar-run") and verify_cmd("ar-get");
 
@@ -100,7 +100,12 @@ if ($assembly_report) {
     my $jid = `cat job`; ($jid) = $jid =~ /(\d+)/;
     my $hash = { report => $report, log => $log, user => $user, server_url => $url, job_id => $jid };
     my $s = encode_json($hash)."\n";
-    print_output($s, $assembly_report);
+
+    my $outdir = "workspace_output"; 
+    run("rm -rf $outdir");
+    run("mkdir -p $outdir");
+    print_output("KBaseAssembly.AssemblyReport", "$outdir/$assembly_report.type");
+    print_output($s, "$outdir/$assembly_report.obj");
 }
 
 sub libs_to_json {

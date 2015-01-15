@@ -59,13 +59,5 @@
     "is_workspace_id": true,
     "workspace_name": "jenkins-method-tests",
     "object_type": "KBaseGenomes.ContigSet"
-  },
-  {
-    "label": "assembly_report",
-    "value": "rhodo.art.contigs.report",
-    "is_input": false,
-    "is_workspace_id": true,
-    "workspace_name": "jenkins-method-tests",
-    "object_type": "KBaseAssembly.AssemblyReport"
   }
 ]

@@ -2,6 +2,6 @@
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-cp $DIR/KBaseFBAModeling/* .
+cp -r $DIR/KBaseFBAModeling/* .
 
 test_pipeline.t

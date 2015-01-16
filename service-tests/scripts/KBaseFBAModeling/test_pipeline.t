@@ -13,7 +13,6 @@ use Data::Dumper;
 use File::Temp qw(tempfile);
 my $test_count = 17;
 
-use Data::Dumper;
 use Bio::KBase::workspace::ScriptHelpers qw(printObjectInfo get_ws_client workspace workspaceURL parseObjectMeta parseWorkspaceMeta printObjectMeta);
 use Bio::KBase::fbaModelServices::ScriptHelpers qw(parse_input_table fbaws get_fba_client runFBACommand universalFBAScriptCode );
 

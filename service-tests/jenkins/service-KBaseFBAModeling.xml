@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>KBase assembly module</description>
+  <description>Tests against the KBaseFBAModeling production server</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.24"/>
@@ -10,12 +10,12 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/kbase/assembly.git</url>
+        <url>https://github.com/kbase/KBaseFBAModeling.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>*/master</name>
+        <name>*/deploy</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -23,22 +23,21 @@
     <extensions/>
   </scm>
   <assignedNode>kbase</assignedNode>
-  <canRoam>true</canRoam>
+  <canRoam>false</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
-    <hudson.triggers.SCMTrigger>
-      <spec>H/5 * * * *</spec>
-      <ignorePostCommitHooks>false</ignorePostCommitHooks>
-    </hudson.triggers.SCMTrigger>
+    <hudson.triggers.TimerTrigger>
+      <spec>H 4 * * *</spec>
+    </hudson.triggers.TimerTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
-  <customWorkspace>dev_container/modules/assembly</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
-      <command>. ../../user-env.sh
-make deploy-client</command>
+      <command>. /kb/deployment/user-env.sh
+. ~/kb_test/env/user-env.sh
+t/test_pipeline.t</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

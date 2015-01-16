@@ -25,20 +25,6 @@
 ~/kb_test/service-tests/scripts/test-KBaseFBAModeling.sh</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <org.tap4j.plugin.TapPublisher plugin="tap@1.20">
-      <testResults>*/*.tap</testResults>
-      <failIfNoResults>false</failIfNoResults>
-      <failedTestsMarkBuildAsFailure>false</failedTestsMarkBuildAsFailure>
-      <outputTapToConsole>false</outputTapToConsole>
-      <enableSubtests>false</enableSubtests>
-      <discardOldReports>false</discardOldReports>
-      <todoIsFailure>false</todoIsFailure>
-      <includeCommentDiagnostics>false</includeCommentDiagnostics>
-      <validateNumberOfTests>false</validateNumberOfTests>
-      <planRequired>true</planRequired>
-      <verbose>true</verbose>
-    </org.tap4j.plugin.TapPublisher>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
 </project>

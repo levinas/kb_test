@@ -6,6 +6,8 @@ use JSON;
 
 use Bio::KBase::NarrativeJobService::Client;
 
+local $| = 1;
+
 my $usage = "Usage: $0 app.json\n\n";
 
 my $input = shift @ARGV or die $usage;

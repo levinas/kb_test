@@ -261,7 +261,7 @@
                     "label": "output_genome", 
                     "step_source": "", 
                     "type": "string", 
-                    "value": "rhodo2", 
+                    "value": "rhodo.genome.out", 
                     "ws_object": {
                         "is_input": 0, 
                         "object_type": "", 

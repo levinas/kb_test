@@ -20,7 +20,7 @@ my $job   = $state->{job_id} or die "Could not start app '$app'";
 my $pos   = $state->{position};
 
 print STDERR "Running app '$name' on '$input'...\n";
-print STDERR "job = $job, position = $position\n";
+print STDERR "job = $job, position = $pos\n";
 my $state = wait_job($job);
 my $time  = time_readable(time() - $start);
 print STDERR "Job completed in $time: \n";

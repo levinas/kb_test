@@ -1,0 +1,130 @@
+{
+    "name": "flux_balance_analysis",
+    "steps": [
+        {
+            "is_long_running": 0,
+            "parameters": [
+                {
+                    "is_workspace_id": 0,
+                    "label": "model",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "iRsp1140",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "fba",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "iRsp1140.fba.out",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "fva",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "simulateko",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "minimizeflux",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "model_workspace",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "jenkins-app-tests",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "formulation:media_workspace",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "jenkins-app-tests",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "formulation:prommconstraint_workspace",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "jenkins-app-tests",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "workspace",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "jenkins-app-tests",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                }
+            ],
+            "script": {
+                "has_files": 0,
+                "method_name": "",
+                "service_name": ""
+            },
+            "service": {
+                "method_name": "runfba",
+                "service_name": "KBaseFBAModeling",
+                "service_url": ""
+            },
+            "step_id": "step_1",
+            "type": "service"
+        }
+    ]
+}

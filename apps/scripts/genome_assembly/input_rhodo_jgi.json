@@ -74,7 +74,7 @@
                     "label": "input_contigset",
                     "step_source": "",
                     "type": "string",
-                    "value": "rhodo.jgi.test",
+                    "value": "rhodo.jgi.assembly.out",
                     "ws_object": {
                         "is_input": 0,
                         "object_type": "",
@@ -86,7 +86,7 @@
                     "label": "scientific_name",
                     "step_source": "",
                     "type": "string",
-                    "value": "test",
+                    "value": "Rhodo Simulated JGI",
                     "ws_object": {
                         "is_input": 0,
                         "object_type": "",
@@ -326,7 +326,7 @@
                     "label": "output_genome",
                     "step_source": "",
                     "type": "string",
-                    "value": "genome_SXKNCMOT",
+                    "value": "rhodo.jgi.assembly.genome.out",
                     "ws_object": {
                         "is_input": 0,
                         "object_type": "",

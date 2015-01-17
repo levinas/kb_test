@@ -15,9 +15,12 @@ my $url   = "http://narrative-dev.kbase.us:8200"; # https://github.com/kbase/nar
 my $token = $ENV{KB_AUTH_TOKEN};
 my $njs   = new Bio::KBase::NarrativeJobService::Client($url, $token);
 my $start = time();
-my $job   = $njs->run_app($app)->{job_id} or die "Could not start app '$app'";
+my $state = $njs->run_app($app);
+my $job   = $state->{job_id} or die "Could not start app '$app'";
+my $pos   = $state->{position};
 
-print STDERR "Running app '$name' on '$input'..\njob = $job\n";
+print STDERR "Running app '$name' on '$input'...\n";
+print STDERR "job = $job, position = $position\n";
 my $state = wait_job($job);
 my $time  = time_readable(time() - $start);
 print STDERR "Job completed in $time: \n";

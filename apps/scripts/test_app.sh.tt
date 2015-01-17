@@ -1,0 +1,9 @@
+#! /bin/bash
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+rsync -avp --del $DIR/[% app %] .
+
+for f in [% app %]/input*.json; do
+  ../../utils/run_njs_app.pl $f
+done

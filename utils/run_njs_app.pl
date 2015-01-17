@@ -23,7 +23,8 @@ print STDERR "Running app '$name' on '$input'...\n";
 print STDERR "job = $job, position = $pos\n";
 my $state = wait_job($job);
 my $time  = time_readable(time() - $start);
-print STDERR "Job completed in $time: \n";
+my $final = $state->{job_state};
+print STDERR "Job completed with status '$final' in $time: \n";
 print to_json($state, {pretty => 1});
 
 my $errors = $state->{step_errors};
@@ -38,7 +39,7 @@ sub wait_job {
     my $seconds = 5;
     my $minutues = 1;
     my $cycles;
-    while ($state->{job_state} !~ /completed/) {
+    while ($state->{job_state} !~ /(completed|suspend)/) {
         $state && $state->{job_state} or die "Could not query job state: $job";
         # Running states: queued, running, in-progress
         print STDERR "Checking job state: $state->{job_state}\n" if ($cycles++ % int($minutues * 60 / $seconds)) == 0;

@@ -6,8 +6,6 @@ use JSON;
 
 use Bio::KBase::NarrativeJobService::Client;
 
-local $| = 1;
-
 my $usage = "Usage: $0 app.json\n\n";
 
 my $input = shift @ARGV or die $usage;
@@ -18,9 +16,9 @@ my $token = $ENV{KB_AUTH_TOKEN};
 my $njs   = new Bio::KBase::NarrativeJobService::Client($url, $token);
 my $job   = $njs->run_app($app)->{job_id} or die "Could not start app '$app'";
 
-print "Running app '$name' on '$input'..\njob = $job\n";
+print STDERR "Running app '$name' on '$input'..\njob = $job\n";
 my $state = wait_job($job);
-print "Job completed: \n";
+print STDERR "Job completed: \n";
 print to_json($state, {pretty => 1});
 
 my $errors = $state->{step_errors};
@@ -38,7 +36,7 @@ sub wait_job {
     while ($state->{job_state} !~ /completed/) {
         $state && $state->{job_state} or die "Could not query job state: $job";
         # Running states: queued, running, in-progress
-        print "Checking job state: $state->{job_state}\n" if ($cycles++ % int($minutues * 60 / $seconds)) == 0;
+        print STDERR "Checking job state: $state->{job_state}\n" if ($cycles++ % int($minutues * 60 / $seconds)) == 0;
         sleep $seconds;
         $state = $njs->check_app_state($job); 
     } 

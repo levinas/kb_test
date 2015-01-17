@@ -26,6 +26,7 @@ my $time  = time_readable(time() - $start);
 my $final = $state->{job_state};
 print STDERR "Job completed with status '$final' in $time: \n";
 print to_json($state, {pretty => 1});
+print to_json($app, {pretty => 1}) if $final !~ /completed/;
 
 my $errors = $state->{step_errors};
 my $outputs = $state->{step_outputs};

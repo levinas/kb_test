@@ -2,8 +2,8 @@ body {
     font-size: 15px;
     font-family: Helvetica, sans-serif;
     shape-rendering: crispEdges;
-    /* color: #3f3f3f; */
-    color: #505050;
+    color: #3f3f3f;
+    /* color: #505050; */
 }
 
 .intro {

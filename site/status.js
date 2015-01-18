@@ -8,7 +8,7 @@ var displayNames;
 $(document).ready(function() {
     $.getJSON("app_display_names.json", function(json) {
 	displayNames = json;
-	var jenkinsURL = "/jenkins/api/json";
+	var jenkinsURL = "http://140.221.67.1:8080/jenkins/api/json";
 	$.getJSON(jenkinsURL, function(response) { parse_jenkins(response); });
     });
 });
@@ -25,9 +25,9 @@ function parse_jenkins(response) {
 
 function show_table(jobs, type, desc) {
     var docWidth = $(document).width();
-    var tdWidth = 370;
+    var tdWidth = 330;
     var columns = docWidth > tdWidth*3 ? 3 : docWidth > tdWidth*2 ? 2 : 1;
-    var maxWidth = (tdWidth+6) * columns;
+    var maxWidth = (tdWidth+16) * columns;
     var divId = 'div_' + type;
     $('#dashboards').append('<div role="main" id="'+divId+'" style="max-width:'+maxWidth+'px;"></div>');
     $('#'+divId).append('<h4>'+desc+'</h4>');

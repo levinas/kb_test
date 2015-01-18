@@ -92,12 +92,11 @@ div[role="main"] table tr td{
 
 div[role="main"] table tr td{
     padding: 6px 5px 6px 7px;
-    /* vertical-align: top !important; */
-    vertical-align: middle;
+    vertical-align: top !important;
     /* width: 306px; */
     width: 350px;
     min-width: 330px;
-    height: 20px;
+    height: 24px;
     font-size: 14px;
 }
 

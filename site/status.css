@@ -7,7 +7,7 @@ body {
 }
 
 .intro {
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .icon {
@@ -31,7 +31,7 @@ div[role="main"] {
     border-radius: 5px;
     border-radius:5px 5px 5px 5px;
     border: 1px solid #d1d5d8;
-    margin-left: 20px;
+    margin-left: 15px;
     margin-top: 25px;
     margin-bottom: 25px;
 }
@@ -94,8 +94,8 @@ div[role="main"] table tr td{
     padding: 6px 5px 6px 7px;
     vertical-align: top !important;
     /* width: 306px; */
-    width: 330px;
-    min-width: 330px;
+    width: 320px;
+    min-width: 320px;
     height: 20px;
     font-size: 14px;
 }

@@ -25,9 +25,10 @@ function parse_jenkins(response) {
 
 function show_table(jobs, type, desc) {
     var docWidth = $(document).width();
-    var tdWidth = 330;
-    var columns = docWidth > tdWidth*3 ? 3 : docWidth > tdWidth*2 ? 2 : 1;
-    var maxWidth = (tdWidth+16) * columns;
+    var tdWidth = 320+15;
+    var leftMargin = 15;
+    var columns = docWidth-leftMargin > tdWidth*3 ? 3 : docWidth-leftMargin > tdWidth*2 ? 2 : 1;
+    var maxWidth = tdWidth * columns;
     var divId = 'div_' + type;
     $('#dashboards').append('<div role="main" id="'+divId+'" style="max-width:'+maxWidth+'px;"></div>');
     $('#'+divId).append('<h4>'+desc+'</h4>');

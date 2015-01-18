@@ -1,0 +1,127 @@
+body {
+    font-size: 15px;
+    font-family: Helvetica, sans-serif;
+    shape-rendering: crispEdges;
+    /* color: #3f3f3f; */
+    color: #505050;
+}
+
+.intro {
+    margin-left: 20px;
+}
+
+.icon {
+    margin-right: 8px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+}
+
+div[role="main"] > h4 {
+    font-weight: bold;
+    line-height: 1.5;
+    font-size: 12pt;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div[role="main"] {
+    height: auto;
+    border-radius: 5px;
+    border-radius:5px 5px 5px 5px;
+    border: 1px solid #d1d5d8;
+    margin-left: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+div[role="main"] table:first-child th{
+    /*border-top-left-radius: 4px;
+      border-top-right-radius: 4px;*/
+    border-radius:4px 4px 0px 0px;
+    border-top: none;
+}
+
+div[role="main"] table:last-child{
+    /*border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;*/
+    border-radius:0px 0px 4px 4px;
+}
+
+div[role="main"] table:last-child td:last-child{
+    /*border-bottom-right-radius: 4px;*/
+    border-radius:0px 0px 4px 0px;
+}
+
+div[role="main"] table tr th{
+    border-bottom: 1px solid #d1d5d8;
+    border-top: 1px solid #d1d5d8;
+}
+
+div[role="main"] table tr:first-child{
+    border-top:none;
+}
+
+div[role="main"] table table tr th{
+    border-top: 1px solid #d1d5d8;
+}
+
+div[role="main"] table tr td:first-child{
+    border-left: none;
+}
+
+div[role="main"] table th{
+    height: 25px !important;
+    padding: 5px 0px 5px 6px;
+    background-color: #e9edf0;
+    font-weight: bold;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+div[role="main"] table tr{
+    height: 32px;
+}
+
+/*nth childs of all tds :nth-child(2n+1)*/
+div[role="main"] table tr td{
+    border-left: 1px dotted #d9d9d9;
+    border-top: 1px dotted #d9d9d9;
+}
+
+div[role="main"] table tr td{
+    padding: 6px 5px 6px 7px;
+    vertical-align: top !important;
+    /* width: 306px; */
+    width: 350px;
+    min-width: 330px;
+    height: 20px;
+    font-size: 14px;
+}
+
+/*icon*/
+div[role="main"] table tr td span{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+}
+
+/* /\*text*\/ */
+/* div[role="main"] table tr td p.matrix_p{ */
+/*     /\*width: 260px !important;*\/ */
+/*     margin: 1px 0 0 24px  ; */
+/*     *margin:0px; */
+/*     *display:inline-block; */
+/*     *padding-left: 23px; */
+/*     /\*word-break: break-all;*\/ */
+/* } */
+
+/* div[role="main"] table tr td p.affected_p{ */
+/*     margin: 0px 5px 0px 23px; */
+/*     /\*width: 250px;*\/ */
+/*     font-size: 10px; */
+/*     line-height: 15px; */
+/*     color: #bbb; */
+/* } */

@@ -33,9 +33,10 @@ function show_table(jobs, type, desc) {
     $('#'+divId).append('<h4>'+desc+'</h4>');
     $('#'+divId).append('<table id="'+type+'"></table>');
     var icons = {
-	'blue'   : 'normal',
-	'red'    : 'outage',
-	'yellow' : 'issue'
+	'blue'     : 'normal',
+	'red'      : 'outage',
+	'yellow'   : 'issue',
+	'notbuilt' : 'unknown'
     };
     var $table = $("#"+type);
     var reg = new RegExp('^'+type+'-');

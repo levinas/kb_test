@@ -48,7 +48,7 @@ function show_table(jobs, type, desc) {
 	disp  = get_display_name(name, type);
 	icon  = icons[color];
 	image = '<img class="icon" src="images/'+icon+'.png" alt="'+icon+'">';
-	image = '<a href="'+url+'">'+image+'</a>';
+	image = '<a target="_blank" href="'+url+'">'+image+'</a>';
 	var tr = $table.find(">tbody>tr:last");
 	if (!tr.length || tr.find(">td").length >= columns) {
             tr = $("<tr>");

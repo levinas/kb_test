@@ -25,7 +25,7 @@ function parse_jenkins(response) {
 
 function show_table(jobs, type, desc) {
     var docWidth = $(document).width();
-    var tdWidth = 310;
+    var tdWidth = 370;
     var columns = docWidth > tdWidth*3 ? 3 : docWidth > tdWidth*2 ? 2 : 1;
     var maxWidth = (tdWidth+6) * columns;
     var divId = 'div_' + type;

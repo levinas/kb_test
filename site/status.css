@@ -13,8 +13,8 @@ body {
 .icon {
     margin-right: 8px;
     display: inline-block;
-    width: 22px;
-    height: 22px;
+    width: 18px;
+    height: 18px;
 }
 
 div[role="main"] > h4 {
@@ -96,7 +96,7 @@ div[role="main"] table tr td{
     /* width: 306px; */
     width: 350px;
     min-width: 330px;
-    height: 24px;
+    height: 20px;
     font-size: 14px;
 }
 

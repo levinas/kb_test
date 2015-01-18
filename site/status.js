@@ -8,7 +8,7 @@ var displayNames;
 $(document).ready(function() {
     $.getJSON("app_display_names.json", function(json) {
 	displayNames = json;
-	var jenkinsURL = "http://140.221.66.245:8080/api/json";
+	var jenkinsURL = "/jenkins/api/json";
 	$.getJSON(jenkinsURL, function(response) { parse_jenkins(response); });
     });
 });

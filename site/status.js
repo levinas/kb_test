@@ -42,6 +42,13 @@ function show_table(jobs, type, desc) {
     var $table = $("#"+type);
     var reg = new RegExp('^'+type+'-');
     jobs = $.grep(jobs, function(j) { return j["name"].match(reg); });
+    jobs = jobs.sort(function(a, b) {
+	var name_a  = a["name"].replace(type+'-', "");
+	var name_b  = b["name"].replace(type+'-', "");
+	var disp_a  = get_display_name(name_a, type);
+	var disp_b  = get_display_name(name_b, type);
+	return disp_a.localeCompare(disp_b);
+    });
     for (var i in jobs) {
 	job   = jobs[i];
 	name  = job["name"].replace(type+'-', "");

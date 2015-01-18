@@ -7,7 +7,7 @@ body {
 }
 
 .intro {
-    margin-left: 15px;
+    margin-left: 12px;
 }
 
 .icon {
@@ -31,7 +31,7 @@ div[role="main"] {
     border-radius: 5px;
     border-radius:5px 5px 5px 5px;
     border: 1px solid #d1d5d8;
-    margin-left: 15px;
+    margin-left: 12px;
     margin-top: 25px;
     margin-bottom: 25px;
 }

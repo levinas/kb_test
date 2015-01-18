@@ -1,0 +1,262 @@
+{
+    "name": "genome_reannotation",
+    "steps": [
+        {
+            "is_long_running": 0,
+            "parameters": [
+                {
+                    "is_workspace_id": 0,
+                    "label": "input_genome",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "Rhodobacter_CACIA_14H1",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_features_rRNA_SEED",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_features_tRNA_trnascan",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_selenoproteins",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_pyrrolysoproteins",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_features_repeat_region_SEED",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_features_insertion_sequences",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_features_strep_suis_repeat",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_features_strep_pneumo_repeat",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_features_crispr",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_features_CDS_glimmer3",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_features_CDS_prodigal",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "annotate_proteins_kmer_v2",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "1",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "kmer_v1_parameters",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "1",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "annotate_proteins_similarity",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "1",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "resolve_overlapping_features",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "find_close_neighbors",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "1",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "call_features_prophage_phispy",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "0",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "output_genome",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "rhodo_14h1.reanno.out",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                },
+                {
+                    "is_workspace_id": 0,
+                    "label": "workspace",
+                    "step_source": "",
+                    "type": "string",
+                    "value": "jenkins-app-tests",
+                    "ws_object": {
+                        "is_input": 0,
+                        "object_type": "",
+                        "workspace_name": ""
+                    }
+                }
+            ],
+            "script": {
+                "has_files": 0,
+                "method_name": "",
+                "service_name": ""
+            },
+            "service": {
+                "method_name": "annotate_genome",
+                "service_name": "genome_annotation",
+                "service_url": ""
+            },
+            "step_id": "step_1",
+            "type": "service"
+        }
+    ]
+}

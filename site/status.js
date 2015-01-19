@@ -8,7 +8,7 @@ var displayNames;
 $(document).ready(function() {
     $.getJSON("app_display_names.json", function(json) {
 	displayNames = json;
-	var jenkinsURL = "http://140.221.67.1:8080/jenkins/api/json";
+	var jenkinsURL = "http://kbase.us/status_test/jenkins/api/json";
 	$.getJSON(jenkinsURL, function(response) { parse_jenkins(response); });
     });
 });

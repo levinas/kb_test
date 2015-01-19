@@ -4,4 +4,4 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 cp $DIR/annotate_contigset/* .
 
-njs-run-genome-annotation annotate_genome ecoli.contigset.json
+njs-run-genome-annotation --command annotate_genome --param_file ecoli.contigset.json

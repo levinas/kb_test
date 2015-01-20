@@ -7,7 +7,7 @@ var displayNames;
 
 $(document).ready(function() {
     // var jenkinsURL = "jenkins.json";
-    var jenkinsURL = "http://kbase.us/status_test/jenkins/api/json";
+    var jenkinsURL = "jenkins/api/json";
     var monitorURL = "monitor/json";
     $.getJSON("app_display_names.json", function(json) {
 	displayNames = json;

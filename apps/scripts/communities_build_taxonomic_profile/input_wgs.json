@@ -1,0 +1,117 @@
+{
+    "name": "communities_build_taxonomic_profile", 
+    "steps": [
+        {
+            "is_long_running": 0, 
+            "parameters": [
+                {
+                    "is_workspace_id": 1, 
+                    "label": "ids", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "wgs.collection", 
+                    "ws_object": {
+                        "is_input": 1, 
+                        "object_type": "Communities.Collection", 
+                        "workspace_name": "jenkins-app-tests"
+                    }
+                }, 
+                {
+                    "is_workspace_id": 1, 
+                    "label": "output", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "wgs.collection.tax.abund.out", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "Communities.TaxonomicMatrix", 
+                        "workspace_name": "jenkins-app-tests"
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "level", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "genus", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "source", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "SEED", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "evalue", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "5", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "identity", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "60", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "length", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "15", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "token", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }
+            ], 
+            "script": {
+                "has_files": 1, 
+                "method_name": "mg-compare-taxa", 
+                "service_name": "communities_api"
+            }, 
+            "service": {
+                "method_name": "", 
+                "service_name": "", 
+                "service_url": ""
+            }, 
+            "step_id": "step_1", 
+            "type": "script"
+        }
+    ]
+}

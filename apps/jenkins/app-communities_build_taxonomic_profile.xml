@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>KBase app: app-communities_build_taxonomic_profile</description>
+  <description>KBase app: communities_build_taxonomic_profile</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.24"/>
@@ -21,7 +21,7 @@
     <hudson.tasks.Shell>
       <command>. /kb/deployment/user-env.sh
 . ~/kb_test/env/user-env.sh
-~/kb_test/apps/scripts/test-app-communities_build_taxonomic_profile.sh</command>
+~/kb_test/apps/scripts/test-communities_build_taxonomic_profile.sh</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

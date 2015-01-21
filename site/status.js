@@ -110,5 +110,6 @@ function get_display_name(name, type) {
 	}
     }
     if (name == 'annotate_plant_transcripts') return 'Annotate Plant Transcripts'; // Original text is too long: 'Annotate Plant Transcripts with Metabolic Functions'
+    if (name == 'communities_build_functional_profile') return 'Build Metagenomic Functional Abundance';
     return display;
 }

@@ -9,11 +9,11 @@ use Bio::KBase::NarrativeJobService::Client;
 my $usage = "Usage: $0 app.json\n\n";
 
 my $input = shift @ARGV or die $usage;
-my $app   = decode_json(slurp_input($input));
-my $name  = $app->{name};
-my $url   = "http://narrative-dev.kbase.us:8200"; # https://github.com/kbase/narrative/blob/develop/src/config.json
 my $token = $ENV{KB_AUTH_TOKEN};
 my $njs   = new Bio::KBase::NarrativeJobService::Client($url, $token);
+my $app   = decode_json(slurp_input($input)); add_token_to_params($app, $token);
+my $name  = $app->{name};
+my $url   = "http://narrative-dev.kbase.us:8200"; # https://github.com/kbase/narrative/blob/develop/src/config.json
 my $start = time();
 my $state = $njs->run_app($app);
 my $job   = $state->{job_id} or die "Could not start app '$app'";
@@ -34,6 +34,21 @@ my $outputs = $state->{step_outputs};
 $errors && !%$errors or die "Job returned errors\n";
 $outputs && %$outputs or die "Job returned no outputs\n";
 
+sub add_token_to_params {
+    my ($p, $token) = @_;
+    my $steps = $p->{steps};
+    return unless $steps && ref($steps) eq 'ARRAY' && @$steps;
+    for (my $i = 0; $i < @$steps; $i++) {
+        my $params = $steps->[$i]->{parameters};
+        next unless $params && ref($params) eq 'ARRAY' && @$params;
+        for (my $j = 0; $j < @$params; $j++) {
+            if ($params->[$j]->{label} eq "token") {
+                $params->[$j]->{value} = $token;
+            }
+        }
+    }
+}
+
 sub wait_job {
     my ($job) = @_;
     my $state = $njs->check_app_state($job);
@@ -45,8 +60,8 @@ sub wait_job {
         # Running states: queued, running, in-progress
         print STDERR "Checking job state: $state->{job_state}\n" if ($cycles++ % int($minutues * 60 / $seconds)) == 0;
         sleep $seconds;
-        $state = $njs->check_app_state($job); 
-    } 
+        $state = $njs->check_app_state($job);
+    }
     return $state;
 }
 

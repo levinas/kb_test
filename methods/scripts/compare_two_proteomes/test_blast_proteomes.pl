@@ -35,8 +35,8 @@ my $params = {
     genome1id => $test_genome1,
     genome2ws => $input_workspace,
     genome2id => $test_genome2,
-    out_tree_id => $test_output_id,
-    out_workspace => $test_workspace,
+    output_id => $test_output_id,
+    output_ws => $test_workspace,
     sub_bbh_percent => 90,
     max_evalue => "1e-10"
 };

@@ -1,7 +1,7 @@
 [
   {
     "label": "input",
-    "value": "wgs.func.matrix",
+    "value": "wgs.func.normalized.matrix",
     "is_input": true,
     "is_workspace_id": true,
     "workspace_name": "jenkins-method-tests",

@@ -62,7 +62,7 @@ $assembly_report ||= "$output_contigset.report";
 
 verify_cmd("ar-run") and verify_cmd("ar-get");
 
-my $method = $pipeline  ? "-p '$pipeline'" :
+my $method = $pipeline  ? "-p $pipeline" :
              $assembler ? "-a $assembler"  :
                           "-r $recipe";
 

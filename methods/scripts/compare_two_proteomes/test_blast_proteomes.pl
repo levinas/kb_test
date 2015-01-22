@@ -7,7 +7,7 @@ use GenomeComparisonClient;
 use Bio::KBase::userandjobstate::Client;
 
 # note: we need to make sure the tree server is configured to use the same WS and UJS endpoints
-my $srvURL = "https://kbase.us/services/genome_comparison";
+my $srvURL = "https://kbase.us/services/genome_comparison/jsonrpc";
 my $ujsURL  = "https://kbase.us/services/userandjobstate"; 
 
 

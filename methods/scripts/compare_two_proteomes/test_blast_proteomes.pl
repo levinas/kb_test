@@ -41,7 +41,7 @@ my $params = {
     max_evalue => "1e-10"
 };
 print Dumper($params);
-my $job_id = $tr->blast_proteomes_params($params);
+my $job_id = $srv->blast_proteomes_params($params);
 
 
 my ($info, $complete, $error);

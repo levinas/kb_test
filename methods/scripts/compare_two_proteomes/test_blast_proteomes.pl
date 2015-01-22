@@ -3,7 +3,7 @@ use warnings;
 
 use Data::Dumper;
 
-use Bio::KBase::GenomeComparison::GenomeComparison;
+use GenomeComparisonClient;
 use Bio::KBase::userandjobstate::Client;
 
 # note: we need to make sure the tree server is configured to use the same WS and UJS endpoints

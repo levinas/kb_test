@@ -1,0 +1,18 @@
+[
+  {
+    "label": "ids",
+    "value": "wgs.collection",
+    "is_input": true,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "Communities.Collection"
+  },
+  {
+    "label": "output",
+    "value": "wgs.tax.matrix.out",
+    "is_input": false,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "Communities.TaxonomicMatrix"
+  }
+]

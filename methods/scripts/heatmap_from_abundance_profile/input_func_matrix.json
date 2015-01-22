@@ -1,0 +1,18 @@
+[
+  {
+    "label": "input",
+    "value": "wgs.func.matrix",
+    "is_input": true,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "Communities.FunctionalMatrix"
+  },
+  {
+    "label": "output",
+    "value": "wgs.heatmap.out",
+    "is_input": false,
+    "is_workspace_id": true,
+    "workspace_name": "jenkins-method-tests",
+    "object_type": "Communities.Heatmap"
+  }
+]

@@ -1,6 +1,6 @@
 {
-    "genomes": "[\"kb|g.26115\", \"kb|g.2972\", \"kb|g.215499\"]",
+    "genomes": ["kb|g.26115", "kb|g.2972", "kb|g.215499"],
     "workspace": "jenkins-method-tests",
-    "genome_workspaces": "[\"KBasePublicGenomesV4\", \"KBasePublicGenomesV4\", \"KBasePublicGenomesV4\"]",
+    "genome_workspaces": ["KBasePublicGenomesV4", "KBasePublicGenomesV4", "KBasePublicGenomesV4"],
     "output_id": "YersiniaPangenome"
 }

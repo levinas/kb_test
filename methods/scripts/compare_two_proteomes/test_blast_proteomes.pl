@@ -26,7 +26,7 @@ my $test_genome2 = "kb|g.1313";
 #     https://github.com/kbase/genome_comparison/blob/master/clients/GenomeComparisonClient.pm
 # my $srv = Bio::KBase::GenomeComparison::GenomeComparison->new($srvURL, user_id=>$userId, password=>$password);
 # my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL, user_id=>$userId, password=>$password);
-my $srv = Bio::KBase::GenomeComparison::GenomeComparison->new($srvURL);
+my $srv = GenomeComparisonClient->new($srvURL);
 my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL);
 
 

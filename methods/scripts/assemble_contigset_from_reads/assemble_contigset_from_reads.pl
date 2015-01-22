@@ -95,7 +95,7 @@ if (-s "$output_contigset.fa") {
 if ($assembly_report) {
     my $report = `cat report`;
     my $log = `cat err log`;
-    my $user = $ENV{ARAST_AUTH_USER};
+    my $user = $ENV{ARAST_AUTH_USER} || $ENV{KB_AUTH_USER_ID};
     my $url = $ENV{ARAST_URL};
     my $jid = `cat job`; ($jid) = $jid =~ /(\d+)/;
     my $hash = { report => $report, log => $log, user => $user, server_url => $url, job_id => $jid };

@@ -8,6 +8,14 @@
     "object_type": "Communities.Collection"
   },
   {
+    "label": "evalue",
+    "value": "5",
+    "is_input": false,
+    "is_workspace_id": false,
+    "workspace_name": "",
+    "object_type": ""
+  },
+  {
     "label": "output",
     "value": "wgs.func.matrix.out",
     "is_input": false,

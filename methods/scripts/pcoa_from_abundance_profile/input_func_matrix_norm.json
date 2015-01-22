@@ -1,7 +1,7 @@
 [
   {
     "label": "input",
-    "value": "wgs.func.matrix",
+    "value": "wgs.func.normalized.matrix",
     "is_input": true,
     "is_workspace_id": true,
     "workspace_name": "jenkins-method-tests",
@@ -9,7 +9,7 @@
   },
   {
     "label": "output",
-    "value": "wgs.func.pcoa.out",
+    "value": "wgs.func.norm.pcoa.out",
     "is_input": false,
     "is_workspace_id": true,
     "workspace_name": "jenkins-method-tests",

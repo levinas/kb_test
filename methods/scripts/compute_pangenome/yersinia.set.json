@@ -1,5 +1,6 @@
 {
     "genomes": ["kb|g.26115", "kb|g.2972", "kb|g.215499"],
     "workspace": "jenkins-method-tests",
+    "genome_workspaces": "",
     "output_id": "YersiniaPangenome"
 }

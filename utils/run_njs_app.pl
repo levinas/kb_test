@@ -10,7 +10,8 @@ my $usage = "Usage: $0 app.json\n\n";
 
 my $input = shift @ARGV or die $usage;
 my $token = $ENV{KB_AUTH_TOKEN};
-my $url   = "http://narrative-dev.kbase.us:8200"; # https://github.com/kbase/narrative/blob/develop/src/config.json
+# my $url   = "http://narrative-dev.kbase.us:8200"; # https://github.com/kbase/narrative/blob/develop/src/config.json
+my $url   = 'https://kbase.us/services/narrative_job_service';
 my $njs   = new Bio::KBase::NarrativeJobService::Client($url, $token);
 my $app   = decode_json(slurp_input($input)); add_token_to_params($app, $token);
 my $name  = $app->{name};

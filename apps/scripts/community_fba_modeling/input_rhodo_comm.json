@@ -9,7 +9,7 @@
                     "label": "community_submodel_ids", 
                     "step_source": "", 
                     "type": "array", 
-                    "value": "[\"CACIA_model_kbase\", \"iRsp1140\"]", 
+                    "value": "[\"Rhodobacter_CACIA_14H1.model\", \"iRsp1140\"]", 
                     "ws_object": {
                         "is_input": 0, 
                         "object_type": "", 

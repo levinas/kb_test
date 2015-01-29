@@ -11,8 +11,8 @@ my $srvURL = "https://kbase.us/services/gene_families";
 my $ujsURL  = "https://kbase.us/services/userandjobstate"; 
 
 # config settings
-my $userId   = "kbasetest";
-my $password = "****";
+# my $userId   = "kbasetest";
+# my $password = "****";
 my $test_workspace = "jenkins-method-tests";  # the workspace to place the output
 my $test_output_id = "test.genefamilies.out";
 # for now we use a public genome in the production WS

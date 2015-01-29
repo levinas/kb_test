@@ -7,12 +7,12 @@ use Bio::KBase::KBaseGeneFamilies::Client;
 use Bio::KBase::userandjobstate::Client;
 
 # note: we need to make sure the gene_families server is configured to use the same WS and UJS endpoints
-my $srvURL = "https://kbase.us/services/gene_familes";
+my $srvURL = "https://kbase.us/services/gene_families";
 my $ujsURL  = "https://kbase.us/services/userandjobstate"; 
 
 # config settings
-# my $userId   = "kbasetest";
-# my $password = "****";
+my $userId   = "kbasetest";
+my $password = "****";
 my $test_workspace = "jenkins-method-tests";  # the workspace to place the output
 my $test_output_id = "test.genefamilies.out";
 # for now we use a public genome in the production WS
@@ -24,10 +24,8 @@ my $test_model_set = "SMART-only";
 # create the clients
 # Perl client could be downloaded from here: 
 #     https://github.com/kbase/gene_families/blob/master/lib/Bio/KBase/KBaseGeneFamilies/Client.pm
-# my $srv = Bio::KBase::KBaseGeneFamilies::Client->new($srvURL, user_id=>$userId, password=>$password);
-# my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL, user_id=>$userId, password=>$password);
-my $srv = Bio::KBase::KBaseGeneFamilies::Client->new($srvURL);
-my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL);
+my $srv = Bio::KBase::KBaseGeneFamilies::Client->new($srvURL, user_id=>$userId, password=>$password);
+my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL, user_id=>$userId, password=>$password);
 
 my $params = {
     genome => "$genome_workspace/$test_genome",

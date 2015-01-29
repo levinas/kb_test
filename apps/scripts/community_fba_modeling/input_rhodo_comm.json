@@ -62,7 +62,7 @@
                     "label": "model", 
                     "step_source": "", 
                     "type": "string", 
-                    "value": "community-model.1", 
+                    "value": "rhodo.community.model.out", 
                     "ws_object": {
                         "is_input": 0, 
                         "object_type": "", 
@@ -74,7 +74,7 @@
                     "label": "out_model", 
                     "step_source": "", 
                     "type": "string", 
-                    "value": "gapfill-community-model.1", 
+                    "value": "rhodo.community.model.GF.out", 
                     "ws_object": {
                         "is_input": 0, 
                         "object_type": "", 

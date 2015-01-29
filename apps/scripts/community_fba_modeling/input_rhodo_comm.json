@@ -1,0 +1,195 @@
+{
+    "name": "community_fba_modeling", 
+    "steps": [
+        {
+            "is_long_running": 0, 
+            "parameters": [
+                {
+                    "is_workspace_id": 0, 
+                    "label": "community_submodel_ids", 
+                    "step_source": "", 
+                    "type": "array", 
+                    "value": "[\"CACIA_model_kbase\", \"iRsp1140\"]", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "model_uid", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "rhodo.community.model.out", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "workspace", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "jenkins-app-tests", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }
+            ], 
+            "script": {
+                "has_files": 0, 
+                "method_name": "", 
+                "service_name": ""
+            }, 
+            "service": {
+                "method_name": "models_to_community_model", 
+                "service_name": "KBaseFBAModeling", 
+                "service_url": ""
+            }, 
+            "step_id": "step_1", 
+            "type": "service"
+        }, 
+        {
+            "is_long_running": 0, 
+            "parameters": [
+                {
+                    "is_workspace_id": 0, 
+                    "label": "model", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "community-model.1", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "out_model", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "gapfill-community-model.1", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "formulation:formulation:media", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "Rsp-minimal", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "integrate_solution", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "1", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "simultaneous", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "0", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "fastgapfill", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "1", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "workspace", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "jenkins-app-tests", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "model_workspace", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "jenkins-app-tests", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "source_model_ws", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "jenkins-app-tests", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }, 
+                {
+                    "is_workspace_id": 0, 
+                    "label": "formulation:formulation:media_workspace", 
+                    "step_source": "", 
+                    "type": "string", 
+                    "value": "jenkins-app-tests", 
+                    "ws_object": {
+                        "is_input": 0, 
+                        "object_type": "", 
+                        "workspace_name": ""
+                    }
+                }
+            ], 
+            "script": {
+                "has_files": 0, 
+                "method_name": "", 
+                "service_name": ""
+            }, 
+            "service": {
+                "method_name": "gapfill_model", 
+                "service_name": "KBaseFBAModeling", 
+                "service_url": ""
+            }, 
+            "step_id": "step_2", 
+            "type": "service"
+        }
+    ]
+}

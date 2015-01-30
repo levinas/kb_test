@@ -24,8 +24,10 @@ my $test_model_set = "SMART-only";
 # create the clients
 # Perl client could be downloaded from here: 
 #     https://github.com/kbase/gene_families/blob/master/lib/Bio/KBase/KBaseGeneFamilies/Client.pm
-my $srv = Bio::KBase::KBaseGeneFamilies::Client->new($srvURL, user_id=>$userId, password=>$password);
-my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL, user_id=>$userId, password=>$password);
+# my $srv = Bio::KBase::KBaseGeneFamilies::Client->new($srvURL, user_id=>$userId, password=>$password);
+# my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL, user_id=>$userId, password=>$password);
+my $srv = Bio::KBase::KBaseGeneFamilies::Client->new($srvURL);
+my $ujs = Bio::KBase::userandjobstate::Client->new($ujsURL);
 
 my $params = {
     genome => "$genome_workspace/$test_genome",

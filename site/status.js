@@ -6,7 +6,6 @@ $(".intro").append('<h3>System Status as of '+dateStr+'</h3>');
 var displayNames;
 
 $(document).ready(function() {
-    // var jenkinsURL = "jenkins.json";
     var jenkinsURL = "jenkins/api/json";
     var monitorURL = "monitor/json";
     $.getJSON("app_display_names.json", function(json) {
